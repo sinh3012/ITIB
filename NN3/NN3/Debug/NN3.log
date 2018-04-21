@@ -1,0 +1,5 @@
+﻿  NN3.cpp
+  Neuron.cpp
+c:\users\zeus\source\repos\nn3\nn3\neuron.cpp(91): warning C4018: <: несоответствие типов со знаком и без знака
+  Создание кода...
+  NN3.vcxproj -> C:\Users\Zeus\source\repos\NN3\Debug\NN3.exe
