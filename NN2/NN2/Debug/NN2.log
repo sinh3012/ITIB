@@ -1,0 +1,7 @@
+﻿  NN2.cpp
+  Neuron.cpp
+c:\users\zeus\source\repos\nn2\nn2\neuron.cpp(37): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\zeus\source\repos\nn2\nn2\neuron.cpp(52): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\zeus\source\repos\nn2\nn2\neuron.cpp(73): warning C4018: <: несоответствие типов со знаком и без знака
+  Создание кода...
+  NN2.vcxproj -> C:\Users\Zeus\source\repos\NN2\Debug\NN2.exe
