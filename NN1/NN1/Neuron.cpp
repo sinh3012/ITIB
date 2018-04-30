@@ -70,7 +70,7 @@ int Neuron::study_neuron(std::vector<std::vector<int>> X) { // Îáó÷åíèå 
 			}
 		}
 		for (int i = 0; i < 5; i++) {
-				W[i] += delta_w[i];
+			W[i] += delta_w[i];
 		}
 		k++;
 	}
