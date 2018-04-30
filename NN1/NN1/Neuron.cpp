@@ -3,7 +3,7 @@
 
 Neuron::Neuron() {}
 
-Neuron::Neuron(double w0, double w1, double w2, double w3, double w4) { // Задаем начальные значение вектора весов
+Neuron::Neuron(double w0, double w1, double w2, double w3, double w4) { // Г‡Г Г¤Г ГҐГ¬ Г­Г Г·Г Г«ГјГ­Г»ГҐ Г§Г­Г Г·ГҐГ­ГЁГҐ ГўГҐГЄГІГ®Г°Г  ГўГҐГ±Г®Гў
 	W[0] = w0;
 	W[1] = w1;
 	W[2] = w2;
@@ -37,7 +37,7 @@ int Neuron::func_y_out(double out) {
 }
 
 int Neuron::func_delta(std::vector<int> X) {
-	int index = X[4] + 2 * (X[3] + 2 * (X[2] + 2 * (X[1]))); // Находим индекс вектора Х
+	int index = X[4] + 2 * (X[3] + 2 * (X[2] + 2 * (X[1]))); // ГЌГ ГµГ®Г¤ГЁГ¬ ГЁГ­Г¤ГҐГЄГ± ГўГҐГЄГІГ®Г°Г  Г•
 	int delta=0;
 	if (!logistic_activation_func) {
 		delta = real_func[index] - func_y_net(func_net(X));
@@ -56,21 +56,21 @@ int Neuron::func_E() {
 	return E;
 }
 
-int Neuron::study_neuron(std::vector<std::vector<int>> X) { // Обучение нейрона
-	int k = 0; // Номер эпохи
-	while ((func_E() > 0) && (k < 200)) { // Пока есть ошибка (и жива надежда)
+int Neuron::study_neuron(std::vector<std::vector<int>> X) { // ГЋГЎГіГ·ГҐГ­ГЁГҐ Г­ГҐГ©Г°Г®Г­Г 
+	int k = 0; // ГЌГ®Г¬ГҐГ° ГЅГЇГ®ГµГЁ
+	while ((func_E() > 0) && (k < 200)) { // ГЏГ®ГЄГ  ГҐГ±ГІГј Г®ГёГЁГЎГЄГ  (ГЁ Г¦ГЁГўГ  Г­Г Г¤ГҐГ¦Г¤Г )
 		std::cout << "k = " << k << " E = " << func_E() << std::endl;
 		printY();
 		printW();
-		std::vector<double> delta_w{ 0,0,0,0,0 }; // Вектор смещения весов
-		double n = 0.3; // Коэффициент обучения
+		std::vector<double> delta_w{ 0,0,0,0,0 }; // Г‚ГҐГЄГІГ®Г° Г±Г¬ГҐГ№ГҐГ­ГЁГї ГўГҐГ±Г®Гў
+		double n = 0.3; // ГЉГ®ГЅГґГґГЁГ¶ГЁГҐГ­ГІ Г®ГЎГіГ·ГҐГ­ГЁГї
 		for (auto elem : X) {
 			for (int i = 0; i < 5; i++) {
 				delta_w[i] += n * func_delta(elem)*elem[i]*func_df(func_net(elem));
 			}
-			for (int i = 0; i < 5; i++) {
+		}
+		for (int i = 0; i < 5; i++) {
 				W[i] += delta_w[i];
-			}
 		}
 		k++;
 	}
@@ -90,7 +90,7 @@ double Neuron::func_df(double net) {
 	}
 }
 
-void Neuron::printY() { // Вывод вектора значений функции нейрона
+void Neuron::printY() { // Г‚Г»ГўГ®Г¤ ГўГҐГЄГІГ®Г°Г  Г§Г­Г Г·ГҐГ­ГЁГ© ГґГіГ­ГЄГ¶ГЁГЁ Г­ГҐГ©Г°Г®Г­Г 
 	std::cout << "Y = ( ";
 	for (auto elem : all) {
 		if (!logistic_activation_func) {
@@ -103,7 +103,7 @@ void Neuron::printY() { // Вывод вектора значений функции нейрона
 	std::cout << ")" << std::endl;
 }
 
-void Neuron::printW() { // Вывод вектора весов нейрона
+void Neuron::printW() { // Г‚Г»ГўГ®Г¤ ГўГҐГЄГІГ®Г°Г  ГўГҐГ±Г®Гў Г­ГҐГ©Г°Г®Г­Г 
 	std::cout << "W = ( ";
 	for (int i = 0; i < 5; i++) {
 		std::cout << W[i] << " ";
@@ -111,6 +111,6 @@ void Neuron::printW() { // Вывод вектора весов нейрона
 	std::cout << ")" << std::endl;
 }
 
-void Neuron::this_logistic_func(bool key) { // Флаг логистической ФА
+void Neuron::this_logistic_func(bool key) { // Г”Г«Г ГЈ Г«Г®ГЈГЁГ±ГІГЁГ·ГҐГ±ГЄГ®Г© Г”ГЂ
 	logistic_activation_func = key;
 }
